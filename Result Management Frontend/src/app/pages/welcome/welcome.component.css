@@ -1,0 +1,17 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(to right, #cfdee7, #c3d4e7); /* soft gradient for whole page */
+}
+
+.card {
+  border-radius: 1rem;
+  background-color: rgba(255, 255, 255, 0.7); /* semi-transparent white */
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* subtle shadow */
+  backdrop-filter: blur(5px); /* optional: frosted effect */
+}
+
+.btn-lg {
+  font-weight: bold;
+}

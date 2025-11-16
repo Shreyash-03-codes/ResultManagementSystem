@@ -1,0 +1,42 @@
+/* Make navbar sticky at top */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #f8f9fa; /* Soft light gray */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+/* Nav link hover effect */
+.nav-link:hover {
+  text-decoration: underline;
+  color: #0d6efd; /* Bootstrap primary blue */
+  transition: color 0.3s ease, text-decoration 0.3s ease;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  background-color: #ffffff; /* white dropdown */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Navbar brand color */
+.navbar-brand {
+  color: #343a40; /* dark gray */
+}
+
+.navbar-brand:hover {
+  color: #0d6efd;
+}
+
+/* Optional: Active link color */
+.nav-item .active {
+  color: #0d6efd;
+  font-weight: 500;
+}
+
+/* Optional: subtle background gradient for navbar */
+.navbar {
+  background: linear-gradient(to right, #cfdee7, #c3d4e7); /* soft gradient */
+}

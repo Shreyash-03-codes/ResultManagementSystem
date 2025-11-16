@@ -1,0 +1,33 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4">
+          <h3 class="card-title text-center mb-4">Login</h3>
+
+          <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" novalidate>
+            
+            <!-- Username -->
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input id="username" type="text" class="form-control" name="username" [(ngModel)]="loginData.username" placeholder="Enter your username" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3 position-relative">
+              <label for="password" class="form-label">Password</label>
+              <input id="password" [type]="showPassword ? 'text' : 'password'" class="form-control" name="password" [(ngModel)]="loginData.password" placeholder="Enter password" required>
+              <button type="button" class="btn btn-outline-secondary btn-sm position-absolute top-50 end-0 translate-middle-y me-2" (click)="showPassword = !showPassword">
+                {{ showPassword ? 'Hide' : 'Show' }}
+              </button>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Login</button>
+          </form>
+
+          <div *ngIf="error" class="alert alert-danger mt-3 text-center">{{ error }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

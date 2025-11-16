@@ -1,0 +1,53 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom shadow-sm">
+  <div class="container-fluid">
+    <a class="navbar-brand text-dark fw-bold" routerLink="/">Result Management</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+
+        <!-- Show only if NOT logged in -->
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link text-dark" routerLink="/login">Login</a>
+        </li>
+        <li class="nav-item" *ngIf="!isLoggedIn">
+          <a class="nav-link text-dark" routerLink="/signup">Register</a>
+        </li>
+
+        <!-- STUDENT logged in -->
+        <ng-container *ngIf="isLoggedIn && role === 'STUDENT'">
+          <li class="nav-item">
+            <a class="nav-link text-dark">{{ username }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" (click)="logout()">Logout</a>
+          </li>
+        </ng-container>
+
+        <!-- ADMIN logged in -->
+        <ng-container *ngIf="isLoggedIn && role === 'ADMIN'">
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="home" > {{ username }}</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/add-result">Add Result</a>
+          </li>
+           <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/update-result">Update Result</a>
+          </li> 
+          <li class="nav-item">
+            <a class="nav-link text-dark" routerLink="/delete-result">Delete Result</a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link text-dark" (click)="logout()">Logout</a>
+          </li>
+        </ng-container>
+
+      </ul>
+    </div>
+  </div>
+</nav>

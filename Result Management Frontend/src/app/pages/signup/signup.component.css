@@ -1,0 +1,42 @@
+/* Soft gradient background for the whole page */
+:host {
+  display: block;
+  min-height: 100vh;
+  background: linear-gradient(to right, #cfdee7, #c3d4e7);
+  padding-top: 50px;
+  font-family: Arial, sans-serif;
+}
+
+/* Card styling */
+.card {
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background-color: #ffffffcc; /* slightly transparent white */
+}
+
+/* Card title */
+.card-title {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Form inputs */
+input.form-control {
+  border-radius: 5px;
+}
+
+/* Submit button */
+button.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+button.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+/* Alert messages */
+.alert {
+  font-weight: 500;
+}

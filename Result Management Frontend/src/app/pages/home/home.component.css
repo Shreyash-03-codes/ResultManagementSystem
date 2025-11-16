@@ -1,0 +1,17 @@
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 20px;
+  background: linear-gradient(to right, #cfdee7, #c3d4e7);
+  font-family: Arial, sans-serif;
+}
+
+h2, h4 {
+  color: #333;
+}
+
+.table {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+}

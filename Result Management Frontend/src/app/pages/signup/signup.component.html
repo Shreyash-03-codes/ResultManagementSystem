@@ -1,0 +1,74 @@
+<div class="container mt-3">
+  <div class="row justify-content-center ">
+    <div class="col-md-6 col-lg-5 mb-5">
+      <div class="card shadow-sm">
+        <div class="card-body p-4 ">
+          <h3 class="card-title text-center mb-4">Sign Up</h3>
+          
+          <form #signupForm="ngForm" (ngSubmit)="onSubmit(signupForm)" novalidate>
+            
+            <!-- Name -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Full Name</label>
+              <input id="name" type="text" class="form-control" name="name" [(ngModel)]="signupData.name" placeholder="Enter your full name" required>
+            </div>
+
+            <!-- Username -->
+            <div class="mb-3">
+              <label for="username" class="form-label">Username</label>
+              <input id="username" type="text" class="form-control" name="username" [(ngModel)]="signupData.username" placeholder="Choose a username" required>
+            </div>
+
+            <!-- Password -->
+            <div class="mb-3 position-relative">
+              <label for="password" class="form-label">Password</label>
+              <input id="password" [type]="showPassword ? 'text' : 'password'" class="form-control" name="password" [(ngModel)]="signupData.password" placeholder="Enter password" required minlength="6">
+              <button type="button" class="btn btn-outline-secondary btn-sm position-absolute top-50 end-0 translate-middle-y me-2" (click)="showPassword = !showPassword">
+                {{ showPassword ? 'Hide' : 'Show' }}
+              </button>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input id="email" type="email" class="form-control" name="email" [(ngModel)]="signupData.email" placeholder="Enter your email" required>
+            </div>
+
+            <!-- Mobile Number -->
+            <div class="mb-3">
+              <label for="mobileNumber" class="form-label">Mobile Number</label>
+              <input id="mobileNumber" type="tel" class="form-control" name="mobileNumber" [(ngModel)]="signupData.mobileNumber" placeholder="Enter mobile number" required pattern="[0-9]{10}">
+            </div>
+
+            <!-- PRN Number -->
+<div class="mb-3">
+  <label for="prnNumber" class="form-label">PRN Number</label>
+  <input id="prnNumber" type="text" class="form-control" name="prnNumber"
+         [(ngModel)]="signupData.prnNumber"
+         placeholder="Enter 10-digit PRN number"
+         required
+         pattern="^\d{10}$"
+         maxlength="10">
+  <div *ngIf="signupForm.controls['prnNumber']?.invalid && signupForm.controls['prnNumber']?.touched" class="text-danger mt-1">
+    PRN must be exactly 10 digits.
+  </div>
+</div>
+
+
+            <!-- Department -->
+            <div class="mb-3">
+              <label for="department" class="form-label">Department</label>
+              <input id="department" type="text" class="form-control" name="department" [(ngModel)]="signupData.department" placeholder="Enter your department" required>
+            </div>
+
+            <button type="submit" class="btn btn-primary w-100" [disabled]="signupForm.invalid">Sign Up</button>
+          </form>
+
+          <div *ngIf="message" class="alert alert-success mt-3 text-center">{{ message }}</div>
+          <div *ngIf="error" class="alert alert-danger mt-3 text-center">{{ error }}</div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container mt-4">
+
+  <h2>Delete Result for Student</h2>
+
+  <!-- Search student -->
+  <div class="mb-3">
+    <input #searchInput type="text" class="form-control" placeholder="Search student by username"
+           (input)="searchStudent(searchInput.value)">
+    <ul class="list-group mt-2" *ngIf="searchInput.value && filteredStudents.length && !selectedUsername">
+      <li *ngFor="let username of filteredStudents"
+          class="list-group-item list-group-item-action"
+          (click)="selectStudent(username)">
+        {{ username }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Selected student -->
+  <div *ngIf="selectedUsername" class="mb-3">
+    <strong>Selected Student: {{ selectedUsername }}</strong>
+    <button class="btn btn-sm btn-warning ms-2" (click)="changeStudent()">Change</button>
+  </div>
+
+  <!-- Student results -->
+  <div *ngIf="selectedUsername && studentResults.length">
+    <h5>Student Results:</h5>
+    <ul class="list-group mb-3">
+      <li *ngFor="let result of studentResults" class="list-group-item d-flex justify-content-between align-items-center">
+        {{ result.courseName }} - Semester: {{ result.sem }} - Grade: {{ result.grade }}
+        <button class="btn btn-danger btn-sm" (click)="deleteResult(result.id)">Delete</button>
+      </li>
+    </ul>
+  </div>
+
+  <div class="mt-2 text-success" *ngIf="successMessage">{{ successMessage }}</div>
+  <div class="mt-2 text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+</div>

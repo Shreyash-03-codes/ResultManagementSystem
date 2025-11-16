@@ -1,0 +1,65 @@
+<div class="container mt-4">
+
+  <h2>Add Result for Student</h2>
+
+  <!-- Search bar -->
+  <div class="mb-3">
+    <input #searchInput type="text" class="form-control" placeholder="Search student by username"
+           (input)="searchStudent(searchInput.value)">
+
+    <!-- Show only if there is input AND no student selected -->
+    <ul class="list-group mt-2" *ngIf="searchInput.value && filteredStudents.length && !selectedUsername">
+      <li *ngFor="let username of filteredStudents"
+          class="list-group-item list-group-item-action"
+          (click)="selectStudent(username)">
+        {{ username }}
+      </li>
+    </ul>
+  </div>
+
+  <!-- Selected student -->
+  <div *ngIf="selectedUsername" class="mb-3">
+    <strong>Selected Student: {{ selectedUsername }}</strong>
+    <button class="btn btn-sm btn-warning ms-2" (click)="changeStudent()">Change</button>
+  </div>
+
+  <!-- Result form -->
+  <form [formGroup]="resultForm" (ngSubmit)="submitResult()" *ngIf="selectedUsername">
+
+    <div class="row mb-2">
+      <div class="col-md-6">
+        <input type="text" class="form-control" placeholder="Course Name" formControlName="courseName">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="MSE" formControlName="mse">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="CA1" formControlName="ca1">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="CA2" formControlName="ca2">
+      </div>
+    </div>
+
+    <div class="row mb-2">
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="ESE" formControlName="ese">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="Credits" formControlName="credits">
+      </div>
+      <div class="col-md-2">
+        <input type="text" class="form-control" placeholder="Grade" formControlName="grade">
+      </div>
+      <div class="col-md-2">
+        <input type="number" class="form-control" placeholder="Semester" formControlName="sem">
+      </div>
+    </div>
+
+    <button class="btn btn-success mt-2" type="submit">Add Result</button>
+  </form>
+
+  <div class="mt-2 text-success" *ngIf="successMessage">{{ successMessage }}</div>
+  <div class="mt-2 text-danger" *ngIf="errorMessage">{{ errorMessage }}</div>
+
+</div>
